@@ -27,12 +27,26 @@ window.addEventListener("DOMContentLoaded", () => {
     });
     const clock = document.createElement("p");
     document.body.appendChild(clock);
+
+    const birthday = Date.parse('10 Sep 2021 00:00:00 GMT')
+    console.log(birthday);
+    // const bSeconds = birthday.getSeconds();
+    // const bMinutes = birthday.getMinutes();
+    // const bHours = birthday.getHours();
+    
     function updateClock() {
-        const date = new Date();
-        const seconds = date.getSeconds();
-        const minutes = date.getMinutes();
-        const hours = date.getHours();
-        clock.innerHTML = `${hours}:${minutes}:${seconds}`
+        const date = Date.now();
+        // console.log(date);
+        const difference =  birthday - date;
+        const newDate = new Date(difference);
+        // console.log(difference);
+        const seconds = newDate.getSeconds();
+        const minutes = newDate.getMinutes();
+        const hours = newDate.getHours();
+        const days = newDate.getDay();
+        const month = newDate.getMonth();
+        clock.innerHTML = `${month} Months, ${days} Days, ${hours} Hours, 
+            ${minutes} Minutes, and ${seconds} Seconds until my birthday!`
     };
     setInterval(updateClock, 1000);
 
@@ -45,6 +59,18 @@ window.addEventListener("DOMContentLoaded", () => {
     name.outerHTML = "<h1>Harry Higgins</h1>";
     const newH1 = document.getElementsByTagName("h1");
     newH1[0].classList.add("my-test-class");
+
+    const click = () => {
+        console.log('CLICK!');
+    };
+
+    imgDiv.addEventListener('click', click);
+
+    newH1[0].addEventListener('click', () => {
+        console.log('here');
+        document.getElementsByTagName('div')[0].removeEventListener('click', click);
+    });
+
 
 //     new Promise((res, rej) => {
 //         if(1=== 2){
@@ -63,3 +89,6 @@ window.addEventListener("DOMContentLoaded", () => {
 //    fetch().then().then().then().catch()
 });
 
+window.addEventListener('DOMNodeInserted', () => {
+    console.log('Node inserted');
+})
