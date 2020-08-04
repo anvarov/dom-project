@@ -35,5 +35,14 @@ window.addEventListener("DOMContentLoaded", () => {
         clock.innerHTML = `${hours}:${minutes}:${seconds}`
     };
     setInterval(updateClock, 1000);
+
+    const imgDiv = document.createElement('div');
+    const img = document.createElement('img');
+    img.setAttribute('src', 'https://images.pexels.com/photos/4085642/pexels-photo-4085642.jpeg?cs=srgb&dl=pexels-matheus-bertelli-4085642.jpg&fm=jpg');
+    img.setAttribute('height', '200px');
+    imgDiv.appendChild(img);
+    name.insertAdjacentElement('afterend', imgDiv);
+
+    console.log(name.outerHTML);
 });
 
