@@ -42,7 +42,24 @@ window.addEventListener("DOMContentLoaded", () => {
     img.setAttribute('height', '200px');
     imgDiv.appendChild(img);
     name.insertAdjacentElement('afterend', imgDiv);
+    name.outerHTML = "<h1>Harry Higgins</h1>";
+    const newH1 = document.getElementsByTagName("h1");
+    newH1[0].classList.add("my-test-class");
 
-    console.log(name.outerHTML);
+//     new Promise((res, rej) => {
+//         if(1=== 2){
+//             rej();
+//         } else {
+//             res()
+//         }
+
+    
+//     }).then(() => {
+//         console.log("success")
+//     }).catch((err) => {
+//         console.log(err)
+//         console.log("it is not equal")
+//     })
+//    fetch().then().then().then().catch()
 });
 
